@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | Yuka Suzuki</title>
+    <!-- FontAwesome CDN for Icons (No external image files used) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- CSS Variables & Reset --- */
+        :root {
+            --primary-color: #0056b3; /* Intelligence Blue */
+            --accent-color: #4da6ff; /* Bright Blue */
+            --text-color: #333333;
+            --bg-color: #f4f8fb;
+            --white: #ffffff;
+            --font-main: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Layout Utilities --- */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            position: relative;
+            letter-spacing: 0.05em;
+        }
+
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+            margin: 15px auto 0;
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: var(--white);
+            text-align: center;
+            padding-top: 70px; /* Header height offset */
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            letter-spacing: 0.1em;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Decoration for Hero (CSS Shapes instead of images) */
+        .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* --- Profile Section --- */
+        .profile-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .avatar-placeholder {
+            width: 120px;
+            height: 120px;
+            background-color: var(--bg-color);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 3rem;
+            border: 2px solid var(--accent-color);
+        }
+
+        .profile-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .profile-affil {
+            color: #666;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* --- Gakuchika Section --- */
+        .gakuchika-wrapper {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gakuchika-header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+        }
+
+        .gakuchika-content {
+            padding: 40px;
+        }
+
+        .gakuchika-text {
+            text-align: justify;
+            line-height: 2.2;
+            color: #444;
+        }
+
+        .highlight {
+            background: linear-gradient(transparent 70%, #d4e9ff 70%);
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .section {
+                padding: 50px 0;
+            }
+            .profile-card, .gakuchika-content {
+                padding: 25px;
+            }
+            .gakuchika-text {
+                font-size: 0.95rem;
+                line-height: 1.9;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">My Portfolio</a>
+            <div style="font-size: 1.2rem; color: var(--primary-color);">
+                <!-- Hamburger menu icon placeholder -->
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-icon">
+                <i class="fa-solid fa-code"></i>
+            </div>
+            <h1>YUKA SUZUKI</h1>
+            <p>Information Science Student</p>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="profile-card">
+                <!-- CSS Avatar Placeholder -->
+                <div class="avatar-placeholder">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <h3 class="profile-name">鈴木 優果</h3>
+                <p class="profile-affil">
+                    <i class="fa-solid fa-university"></i>
+                    日本大学　理工学部
+                </p>
+                <div style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
+                    <!-- Skill Icons (Decorative) -->
+                    <i class="fa-brands fa-html5 fa-2x" style="color: #e34f26;"></i>
+                    <i class="fa-brands fa-css3-alt fa-2x" style="color: #1572b6;"></i>
+                    <i class="fa-brands fa-js fa-2x" style="color: #f7df1e;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gakuchika Section -->
+    <section id="gakuchika" class="section" style="background-color: #eef4f9;">
+        <div class="container">
+            <h2 class="section-title">Key Experience</h2>
+            <div class="gakuchika-wrapper">
+                <div class="gakuchika-header">
+                    学生時代に力を入れたこと
+                </div>
+                <div class="gakuchika-content">
+                    <div class="gakuchika-text">
+                        <p style="margin-bottom: 1.5em;">
+                            高校の文化祭で、クラス全員で最高の思い出を作ることに注力しました。<br>
+                            方針を巡り意見が割れる中、私は全員が納得できる結論を目指し、<span class="highlight">調整役に徹しました。</span>
+                        </p>
+                        <p style="margin-bottom: 1.5em;">
+                            声の大きい意見だけでなく少数派の声にも耳を傾け、時には自分の主張を抑えてでも全体の調和を優先しました。粘り強く対話を重ね、全員の要望を反映した方針をまとめることができました。
+                        </p>
+                        <p style="margin-bottom: 1.5em;">
+                            結果、クラスは団結し、3年間で最も印象深い思い出を作ることができました。
+                        </p>
+                        <p>
+                            この経験を通じ、自分の意見を通すだけでなく、<span class="highlight">多様な価値観を尊重し、周囲を巻き込みながら合意形成を図る難しさ</span>とコミュニケーションの大切さを学びました。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Yuka Suzuki. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
